@@ -10,16 +10,13 @@ import { onToolbarCreate } from 'discourse/components/d-editor';
 import { getOwner } from 'discourse-common/lib/get-owner';
 import { once } from "@ember/runloop";
 import Category from "discourse/models/category";
-import { setDefaultHomepage } from "discourse/lib/utilities";
 
 const PLUGIN_ID = "DiscourseBasicEditor";
 
 function initializeDiscourseBasicEditor(api) {
   // https://github.com/discourse/discourse/blob/master/app/assets/javascripts/discourse/lib/plugin-api.js.es6
   loadScript("/plugins/DiscourseBasicEditor/ckeditor.js")
-  if(Discourse.SiteSettings.basic_editor_home_component){
-    setDefaultHomepage('/');
-  }
+
   api.reopenWidget("hamburger-menu", {
 
       html() {
