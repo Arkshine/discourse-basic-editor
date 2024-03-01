@@ -12,6 +12,8 @@ import { once } from "@ember/runloop";
 import Category from "discourse/models/category";
 import { setDefaultHomepage } from "discourse/lib/utilities";
 
+const PLUGIN_ID = "DiscourseBasicEditor";
+
 function initializeDiscourseBasicEditor(api) {
   // https://github.com/discourse/discourse/blob/master/app/assets/javascripts/discourse/lib/plugin-api.js.es6
   loadScript("/plugins/DiscourseBasicEditor/ckeditor.js")
@@ -44,6 +46,7 @@ function initializeDiscourseBasicEditor(api) {
       });
   });
   api.modifyClass("controller:composer", {
+    pluginId: PLUGIN_ID,
     @on("init")
     _setupPreview() {
       const val = this.site.mobileView
@@ -76,6 +79,7 @@ function initializeDiscourseBasicEditor(api) {
     return Promise.resolve();
  });
 api.modifyClass("model:composer",{
+  pluginId: PLUGIN_ID,
   @observes("categoryId","loading")
   composeInit() {
     if(this.loading != false || !this.category ) return;
@@ -132,6 +136,7 @@ api.modifyClass("model:composer",{
      },
 })
   api.modifyClass("component:composer-editor", {
+    pluginId: PLUGIN_ID,
     @observes("advancedEditor")
       _redrawComposerChange(){
       this._composerEditorInit()

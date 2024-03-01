@@ -3,6 +3,9 @@ import EmberObject from "@ember/object";
 import { computed } from "@ember/object";
 import { getOwner } from 'discourse-common/lib/get-owner';
 import { iconNode } from "discourse-common/lib/icon-library";
+
+const PLUGIN_ID = "DiscourseBasicEditor";
+
 function injectBasicObjects(api) {
   let VanillaRole = EmberObject.extend({
     init() {
@@ -34,6 +37,7 @@ function injectBasicObjects(api) {
 api.container.registry.register('roles:vanilla', VanillaRole)
 
   api.modifyClass("component:composer-actions", {
+      pluginId: "DiscourseBasicEditor",
       content: computed(function() { //this needs to be computed(function(seq)when updating to master
       let vanilla = getOwner(this).lookup("roles:vanilla");
      return vanilla.actions;
