@@ -1,6 +1,6 @@
 import loadScript from "discourse/lib/load-script";
 import { getOwner } from "@ember/application"
-import { cookAsync } from "discourse/lib/text";
+import { cook } from "discourse/lib/text";
 import { ajax } from "discourse/lib/ajax";
 import getURL from "discourse-common/lib/get-url";
 import { debounce, later, next, schedule, scheduleOnce } from "@ember/runloop";
@@ -17,7 +17,7 @@ export default Component.extend({
     const value = this.value;
     const markdownOptions = this.markdownOptions || {};
 
-    cookAsync(value, markdownOptions).then(cooked => {
+    cook(value, markdownOptions).then(cooked => {
       if (this.isDestroyed) {
         return;
       }
