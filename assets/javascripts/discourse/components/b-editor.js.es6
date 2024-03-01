@@ -4,7 +4,6 @@ import { cook } from "discourse/lib/text";
 import { ajax } from "discourse/lib/ajax";
 import getURL from "discourse-common/lib/get-url";
 import { debounce, later, next, schedule, scheduleOnce } from "@ember/runloop";
-import ENV from "discourse-common/config/environment";
 import Component from "@ember/component";
 
 export default Component.extend({
@@ -115,14 +114,7 @@ export default Component.extend({
               editor.model.document.on( 'change:data', function() {
                   this.set('value', editor.getData());
 
-                  // Debouncing in test mode is complicated
-                  if (ENV.environment === "test") {
-                    this._updatePreview();
-                  } else {
-                    debounce(this, this._updatePreview, 30);
-                  }
-
-
+                debounce(this, this._updatePreview, 30);
 
               }.bind(this) );
               // Focus on the body unless we have a title
