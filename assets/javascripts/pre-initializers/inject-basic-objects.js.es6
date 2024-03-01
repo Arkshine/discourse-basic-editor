@@ -1,7 +1,7 @@
 import { withPluginApi } from "discourse/lib/plugin-api";
 import EmberObject from "@ember/object";
 import { computed } from "@ember/object";
-import { getOwner } from 'discourse-common/lib/get-owner';
+import { getOwner } from "@ember/application"
 import { iconNode } from "discourse-common/lib/icon-library";
 
 const PLUGIN_ID = "DiscourseBasicEditor";

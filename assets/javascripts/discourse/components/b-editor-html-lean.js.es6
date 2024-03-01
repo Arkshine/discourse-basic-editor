@@ -1,5 +1,4 @@
 import loadScript from "discourse/lib/load-script";
-import { getOwner } from 'discourse-common/lib/get-owner';
 import { cookAsync } from "discourse/lib/text";
 import { ajax } from "discourse/lib/ajax";
 import discourseComputed, {  observes,  on } from "discourse-common/utils/decorators";

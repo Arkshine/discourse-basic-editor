@@ -7,7 +7,7 @@ import putCursorAtEnd from "discourse/lib/put-cursor-at-end";
 import { debounce, later, next, schedule, throttle } from "@ember/runloop";
 import { findRawTemplate } from "discourse-common/lib/raw-templates";
 import { onToolbarCreate } from 'discourse/components/d-editor';
-import { getOwner } from 'discourse-common/lib/get-owner';
+import { getOwner } from "@ember/application"
 import { once } from "@ember/runloop";
 import Category from "discourse/models/category";
 

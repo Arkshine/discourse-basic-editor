@@ -1,5 +1,5 @@
 import loadScript from "discourse/lib/load-script";
-import { getOwner } from 'discourse-common/lib/get-owner';
+import { getOwner } from "@ember/application"
 import { cookAsync } from "discourse/lib/text";
 import { ajax } from "discourse/lib/ajax";
 import getURL from "discourse-common/lib/get-url";
