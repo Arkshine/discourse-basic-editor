@@ -5,7 +5,10 @@ import { ajax } from "discourse/lib/ajax";
 import discourseComputed, {  observes,  on } from "discourse-common/utils/decorators";
 import { debounce, later, next, schedule, scheduleOnce } from "@ember/runloop";
 import ENV from "discourse-common/config/environment";
-export default Ember.Component.extend({
+import Component from "@ember/component";
+import { once } from "@ember/runloop";
+
+export default Component.extend({
   classNames: ["d-editor"],
 
   setupBasicEditor(){
@@ -56,7 +59,7 @@ export default Ember.Component.extend({
   @observes("reset")
   resetEditor(){
     if(!this.reset) return;
-     Ember.run.once(this, function(){
+     once(this, function(){
        this.set("reset", false)
        if(!this.ckeditor) return;
        this.ckeditor.setData(this.value)

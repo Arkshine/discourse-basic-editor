@@ -1,5 +1,6 @@
 import Controller from "@ember/controller";
 import loadScript from "discourse/lib/load-script";
+import { later } from "@ember/runloop";
 
 export default Controller.extend({
   init: function () {
@@ -7,7 +8,7 @@ export default Controller.extend({
 
   loadScript("/plugins/DiscourseBasicEditor/ckeditor.js").then(() => {
 
-    Ember.run.later(this, (function() {
+    later(this, (function() {
       ClassicEditor.create( document.querySelector( '#editor' ) )
           .then( editor => {
               console.log( editor );

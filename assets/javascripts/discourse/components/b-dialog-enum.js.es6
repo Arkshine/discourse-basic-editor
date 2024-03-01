@@ -1,5 +1,7 @@
 import discourseComputed from "discourse-common/utils/decorators";
-export default Ember.Component.extend({
+import Component from "@ember/component";
+
+export default Component.extend({
 
    init() {
     this._super(...arguments);

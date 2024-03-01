@@ -5,7 +5,9 @@ import { ajax } from "discourse/lib/ajax";
 import getURL from "discourse-common/lib/get-url";
 import { debounce, later, next, schedule, scheduleOnce } from "@ember/runloop";
 import ENV from "discourse-common/config/environment";
-export default Ember.Component.extend({
+import Component from "@ember/component";
+
+export default Component.extend({
   classNames: ["d-editor"],
   _updatePreview() {
     if (this._state !== "inDOM") {
