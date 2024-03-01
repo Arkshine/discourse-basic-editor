@@ -146,16 +146,9 @@ later(this, (function() {
           const $input = $(this.element.querySelector(".ck-editor__editable_inline"));
           const $preview = $(this.element.querySelector(".d-editor-preview-wrapper"));
 
-
-          if (this._enableAdvancedEditorPreviewSync()) {
-            this._initInputPreviewSync($input, $preview);
-          } else {
             $input.on("scroll", () =>
               throttle(this, this._syncEditorAndPreviewScroll, $input, $preview, 20)
             );
-          }
-
-
 
           this.appEvents.trigger("composer:will-open");
       }else {
@@ -177,13 +170,9 @@ later(this, (function() {
           });
         }
 
-        if (this._enableAdvancedEditorPreviewSync()) {
-          this._initInputPreviewSync($input, $preview);
-        } else {
           $input.on("scroll", () =>
             throttle(this, this._syncEditorAndPreviewScroll, $input, $preview, 20)
           );
-        }
 
         // Focus on the body unless we have a title
         if (!this.get("composer.canEditTitle")) {
