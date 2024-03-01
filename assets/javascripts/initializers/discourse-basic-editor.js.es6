@@ -5,7 +5,7 @@ import discourseComputed, {  observes,  on } from "discourse-common/utils/decora
 import ComposerEditor from "discourse/components/composer-editor";
 import putCursorAtEnd from "discourse/lib/put-cursor-at-end";
 import { debounce, later, next, schedule, throttle } from "@ember/runloop";
-import { findRawTemplate } from "discourse/lib/raw-templates";
+import { findRawTemplate } from "discourse-common/lib/raw-templates";
 import { onToolbarCreate } from 'discourse/components/d-editor';
 import { getOwner } from 'discourse-common/lib/get-owner';
 import { once } from "@ember/runloop";
